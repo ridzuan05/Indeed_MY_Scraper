@@ -198,7 +198,7 @@ jobhash[:position] = r.css("h2.jobtitle").text.strip.lstrip
 jobhash[:company] = r.css("span.company").text.strip.lstrip
 jobhash[:location] = r.css('span[itemprop="jobLocation"]').text.strip.lstrip
 if r.css("h2.jobtitle").css("a")[0]
-jobhash[:url] = "http://indeed.com" + r.css("h2.jobtitle").css("a")[0]["href"]
+jobhash[:url] = "http://indeed.com.my" + r.css("h2.jobtitle").css("a")[0]["href"]
 begin
 jobhash[:text] = Nokogiri::HTML(open(jobhash[:url])).text
 rescue
