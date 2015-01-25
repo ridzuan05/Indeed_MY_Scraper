@@ -27,7 +27,7 @@ require 'open-uri'
 require 'json'
 require 'nokogiri'
 require 'date'
-require 'open_uri_redirections'
+# require 'open_uri_redirections'
 
 i = IndeedScraper.new("big data", "")
 i.searchJobs
