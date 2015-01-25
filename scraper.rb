@@ -227,6 +227,14 @@ JSON.pretty_generate(@output)
 end
 end
 
+# Scrape Resumes
+# i = IndeedScraper.new("keyword", "location (or nil if no location)")
+# i.searchResumes
+# puts i.getOutput
+
+# Scrape Jobs-
+# i = IndeedScraper.new("keyword", "location (or nil if no location)")
+
 i = IndeedScraper.new("big data", "")
 i.searchJobs
 puts i.getOutput
