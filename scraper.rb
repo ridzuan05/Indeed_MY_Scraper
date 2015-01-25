@@ -29,10 +29,6 @@ require 'nokogiri'
 require 'date'
 # require 'open_uri_redirections'
 
-i = IndeedScraper.new("big data", "")
-i.searchJobs
-puts i.getOutput
-
 class IndeedScraper
 def initialize(searchterm, location)
 @searchterm = searchterm
@@ -230,3 +226,7 @@ def getOutput
 JSON.pretty_generate(@output)
 end
 end
+
+i = IndeedScraper.new("big data", "")
+i.searchJobs
+puts i.getOutput
