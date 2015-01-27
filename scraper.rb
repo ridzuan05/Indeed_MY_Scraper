@@ -194,6 +194,12 @@ while i <= count
 html.css("div.row").each do |r|
 jobhash = Hash.new
 jobhash[:position] = r.css("h2.jobtitle").text.strip.lstrip
+
+ident=r.css("h2")
+ident=ident.first['id']
+ident.to_s()
+ident.gsub!(/.*_/im, "") 
+
 jobhash[:company] = r.css("span.company").text.strip.lstrip
 jobhash[:location] = r.css('span[itemprop="jobLocation"]').text.strip.lstrip
 date = r.css("span[class=date]").text.strip.lstrip
@@ -218,8 +224,11 @@ data={
 "description" => jobhash[:text],
 "date" => date,
 "current_time" => time,
+"id" => ident,
 "url"=> jobhash[:url],
 }
+
+ScraperWiki::save_sqlite(["id"], data)
 
 end
 # Get next page
