@@ -196,6 +196,8 @@ jobhash = Hash.new
 jobhash[:position] = r.css("h2.jobtitle").text.strip.lstrip
 jobhash[:company] = r.css("span.company").text.strip.lstrip
 jobhash[:location] = r.css('span[itemprop="jobLocation"]').text.strip.lstrip
+date = r.css("span[class=date]").text.strip.lstrip
+time = Time.now
 if r.css("h2.jobtitle").css("a")[0]
 jobhash[:url] = "http://indeed.com.my" + r.css("h2.jobtitle").css("a")[0]["href"]
 begin
@@ -208,6 +210,17 @@ end
 end
 end
 @output.push(jobhash)
+
+data={
+"jobtitle" => jobhash[:position],
+"employer" => jobhash[:company],
+"location" => jobhash[:location],
+"description" => jobhash[:text],
+"date" => date,
+"current_time" => time,
+"url"=> jobhash[:url],
+}
+
 end
 # Get next page
 i += 1
