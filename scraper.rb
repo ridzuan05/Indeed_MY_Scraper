@@ -1,6 +1,3 @@
-# This is a template for a Ruby scraper on Morph (https://morph.io)
-# including some code snippets below that you should find helpful
-
 require 'scraperwiki'
 # require 'mechanize'
 #
@@ -169,6 +166,8 @@ else
 return date
 end
 end
+
+
 # Search for jobs
 def searchJobs
 @searchterm.gsub!(" ", "+")
@@ -203,7 +202,7 @@ begin
 jobhash[:text] = Nokogiri::HTML(open(jobhash[:url])).text
 rescue
 begin
-jobhash[:text] = Nokogiri::HTML(open(jobhash[:url], :allow_redirections => :all)).text
+# jobhash[:text] = Nokogiri::HTML(open(jobhash[:url], :allow_redirections => :all)).text
 rescue
 end
 end
