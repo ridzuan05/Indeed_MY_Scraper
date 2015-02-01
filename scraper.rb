@@ -256,6 +256,6 @@ end
 # Scrape Jobs-
 # i = IndeedScraper.new("keyword", "location (or nil if no location)")
 
-i = IndeedScraper.new("big data", "")
+i = IndeedScraper.new("("big data")", "")
 i.searchJobs
 puts i.getOutput
